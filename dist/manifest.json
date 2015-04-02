@@ -1,0 +1,31 @@
+{
+    "name": "592租屋網",
+    "description": "找房子就是快",
+    "manifest_version": 2,
+    "version": "0.1",
+    "permissions": [
+        "tabs",
+        "storage"
+    ],
+    "web_accessible_resources": [
+        "injected-script.js",
+        "markershow-refined.js"
+    ],
+    "background": {
+        "scripts": []
+    },
+    "icons": {
+        "128": "images/icon.png"
+    },
+    "content_scripts": [{
+        "matches": [ "*://*.591.com.tw/", "*://*.591.com.tw/*" ],
+        "css": ["css/inject.css"],
+        "js": ["inject.bundle.js"],
+        "run_at": "document_end"
+    }],
+    "page_action": {
+        "default_icon": "images/icon.png",
+        "default_title": "KKMiner",
+        "default_popup": "popup.html"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "ext-rent592",
+    "version": "1.0.0",
+    "description": "Rent 592",
+    "dependencies": {
+        "react": "latest",
+        "flux": "latest",
+        "rsvp": "latest",
+        "moment": "latest",
+        "lodash": "latest",
+        "classnames": "latest",
+        "request": "latest",
+        "jquery": "latest"
+    },
+    "devDependencies": {
+        "browserify": "latest",
+        "jest-cli": "^0.4.0",
+        "reactify": "latest",
+        "watchify": "latest"
+    },
+    "scripts": {
+        "test": "jest",
+        "watch": "./sh/watch.sh",
+        "build": "./sh/build.sh"
+    }
+}
