@@ -25,7 +25,7 @@
     }],
     "page_action": {
         "default_icon": "images/icon.png",
-        "default_title": "KKMiner",
+        "default_title": "Rent-592",
         "default_popup": "popup.html"
     }
 }
