@@ -2,6 +2,7 @@
 # ./node_modules/.bin/watchify -v -t reactify -o dist/popup.bundle.js src/popup.js &
 # ./node_modules/.bin/watchify -v -t reactify -o dist/background.bundle.js src/background.js &
 ./node_modules/.bin/watchify -v -t reactify -o dist/inject.bundle.js src/inject.js &
+./node_modules/.bin/watchify -v -t reactify -o dist/injected-script.bundle.js src/injected-script.js &
 
 for job in `jobs -p`
 do
