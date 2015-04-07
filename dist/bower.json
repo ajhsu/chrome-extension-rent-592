@@ -1,0 +1,17 @@
+{
+  "name": "ext-rent592",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ajhsu/extension-rent-592",
+  "authors": [
+    "AJ Hsu <ajhsu@kkbox.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
