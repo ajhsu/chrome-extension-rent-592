@@ -102,3 +102,9 @@ MarkerShow.prototype.onRemove = function() {
     this.div_.parentNode.removeChild(this.div_);
     this.div_ = null;
 };
+
+function rerenderMarkerPopup(){
+    $('.property_list li').each(function(i, elem){
+        console.log($(elem).find('a').attr('href'));
+    });
+}

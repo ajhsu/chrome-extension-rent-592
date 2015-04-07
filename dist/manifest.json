@@ -8,8 +8,12 @@
         "storage"
     ],
     "web_accessible_resources": [
-        "injected-script.js",
-        "markershow-refined.js"
+        "injected-script.bundle.js",
+        "markershow-refined.js",
+        "map_opt-refined.js",
+        "images/unchecked.png",
+        "images/checked.png",
+        "images/collected.png"
     ],
     "background": {
         "scripts": []
@@ -19,7 +23,9 @@
     },
     "content_scripts": [{
         "matches": [ "*://*.591.com.tw/", "*://*.591.com.tw/*" ],
-        "css": ["css/inject.css"],
+        "css": [
+            "css/inject.css"
+        ],
         "js": ["inject.bundle.js"],
         "run_at": "document_end"
     }],
