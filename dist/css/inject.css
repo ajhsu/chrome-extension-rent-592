@@ -1,3 +1,8 @@
+.marker {
+    font-size: 10px;
+    color: black;
+}
+
 .marker-seen {
     border: 4px solid green;
 }
