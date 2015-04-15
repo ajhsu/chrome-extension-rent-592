@@ -5,3 +5,45 @@
 #tools a{
     background-image: none !important;
 }
+
+.bubble {
+    font-size: 11px;
+    color: #fff;
+    position:relative;
+    display:inline-block;
+    padding: 4px 8px 4px 8px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #aaa;
+    white-space: nowrap;
+}
+
+.bubble--hover {
+    background-color: #F9B86D !important;
+    z-index: 1;
+}
+
+.unchecked {
+    background-color: #FF7E08;
+}
+
+/* 6小時內更新的物件 */
+.just-updated {
+    background-color: red !important;
+}
+
+/* 24小時內更新的物件 */
+.today-updated {
+    background-color: darkred !important;
+}
+
+.checked {
+    background-color: #999 !important;   
+}
+
+.collected {
+    background-color: black !important;
+    border: 2px solid #E5BD4D !important;
+}
