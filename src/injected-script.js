@@ -100,6 +100,19 @@ window.onload = function(){
 
                     displayText = rentFee + ' | ' + propSize + '坪 | 樓層 ' + floorCount + ' | ' + lastUpdated;
 
+                    // 如果是已讀但未收藏，就不要再顯示細節了
+                    PostOperate.hasChecked(postId).then(function(checked) {
+                        PostOperate.hasCollected(postId).then(function(collected) {
+                            if( !checked || collected ){
+                                var $target = $('#prop_num_' + propId);
+                                $target.text(displayText);
+                                if( updatedLevel ){
+                                    $target.parent().addClass(updatedLevel);
+                                }
+                            }
+                        });
+                    });
+
                     console.log(output);
                 });
             }
