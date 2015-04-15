@@ -59,7 +59,7 @@ $(function(){
 });
 
 function onMarkerUpdated(){
-    $('.marker').each(function(i, elem){
+    $('.bubble').each(function(i, elem){
         var postId = elem.getAttribute('postId');
         PostOperate.hasChecked(postId)
         .then(function(checked){
