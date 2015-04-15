@@ -60,7 +60,10 @@ $(function(){
 
 function onMarkerUpdated(){
     $('.bubble').each(function(i, elem){
+        rerenderMarker(elem);
+
         var postId = elem.getAttribute('postId');
+
         PostOperate.hasChecked(postId)
         .then(function(checked){
             if(checked){
@@ -104,4 +107,13 @@ function rerenderPostToolbar(){
             $('body').css('border', '10px solid green');
         }
     });
+}
+
+function rerenderMarker(marker){
+    var $marker = $(marker);
+
+    // $marker.css('font-size', '10px');
+    // $marker.css('color', 'black');
+    // $marker.css('background-repeat', 'no-repeat');
+    // $marker.removeClass('marker').addClass('bubble');
 }
