@@ -64,17 +64,20 @@ function onMarkerUpdated(){
         PostOperate.hasChecked(postId)
         .then(function(checked){
             if(checked){
-                var path = chrome.extension.getURL('images/checked.png');
-                $(elem).css('background-image', 'url({{path}})'.replace('{{path}}', path)); 
+                $(elem).addClass('checked');
+                // var path = chrome.extension.getURL('images/checked.png');
+                // $(elem).css('background-image', 'url({{path}})'.replace('{{path}}', path)); 
             }
         });
+
         PostOperate.hasCollected(postId)
         .then(function(collected){
             if(collected){
-                var path = chrome.extension.getURL('images/collected.png');
-                $(elem).css('background-image', 'url({{path}})'.replace('{{path}}', path)); 
+                $(elem).addClass('collected');
+                // var path = chrome.extension.getURL('images/collected.png');
+                // $(elem).css('background-image', 'url({{path}})'.replace('{{path}}', path)); 
             }
-        })
+        });
     });
 }
 
