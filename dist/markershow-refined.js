@@ -21,9 +21,9 @@ function MarkerShow(map, latLng, ware) {
 MarkerShow.prototype = new google.maps.OverlayView();
 MarkerShow.prototype.onAdd = function() {
     var div = document.createElement('div');
-    div.className = 'marker';
+    div.className = 'bubble unchecked';
     if (8 == this.ware_['type'] && 15 <= this.map_.getZoom()) {
-        div.className = 'marker marker_expand';
+        div.className = 'bubble unchecked';
     }
 
     // Style here
@@ -40,15 +40,16 @@ MarkerShow.prototype.onAdd = function() {
     div_obj.attr('name', this.ware_[0]);
     div_obj.attr('fullname', this.ware_[4]);
     $jq(div).bind('mouseover', function(event) {
-        $jq(this).attr("className", "marker marker_hover");
-        var cases_obj = $jq("#map2_commname_default_" + $jq(this).attr('id'));
-        if (cases_obj) {
-            cases_obj.css("display", 'block');
-            cases_obj.attr("className", "map2_commname_default map2_commname_hover");
-        }
+        $jq(this).addClass('bubble--hover');
+        // var cases_obj = $jq("#map2_commname_default_" + $jq(this).attr('id'));
+        // if (cases_obj) {
+        //     cases_obj.css("display", 'block');
+        //     cases_obj.attr("className", "map2_commname_default map2_commname_hover");
+        // }
         $jq("#show_id").val($jq(this).attr('id'));
         var obj = $jq(this);
         $jq(this).bind('click', function() {
+            // 顯示物件列表視窗
             var className = obj.attr("className");
             if (className) {
                 if (className.indexOf("marker_hover") && obj.attr('id') == $jq("#show_id").val()) {
@@ -62,12 +63,13 @@ MarkerShow.prototype.onAdd = function() {
         });
     });
     $jq(div).bind("mouseout", function(event) {
-        $jq(this).attr("className", "marker");
-        var cases_obj = $jq("#map2_commname_default_" + $jq(this).attr('id'));
-        if (cases_obj) {
-            cases_obj.css("display", 'none');
-            cases_obj.attr("className", "map2_commname_default");
-        }
+        // Do nothing
+        $jq(this).removeClass('bubble--hover');
+        // var cases_obj = $jq("#map2_commname_default_" + $jq(this).attr('id'));
+        // if (cases_obj) {
+        //     cases_obj.css("display", 'none');
+        //     cases_obj.attr("className", "map2_commname_default");
+        // }
         $jq("#show_id").val(0);
     });
     this.div_ = div;
