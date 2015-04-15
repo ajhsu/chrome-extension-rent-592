@@ -59,9 +59,11 @@ window.onload = function(){
 
                     var res = null,
                         lastUpdated,
+                        updatedLevel = null,
                         rentFee,
                         propSize,
                         floorCount,
+                        displayText,
                         output = '';
 
                     output += 'prop_id: ';
@@ -70,19 +72,23 @@ window.onload = function(){
 
                     // 更新時間
                     res = html.match(/最近一次更新：(.+)<br/);
-                    lastUpdated = (res ? res[1] : '')
+                    lastUpdated = (res ? res[1] : '');
                     output += lastUpdated;
                     output += ' / ';
 
+                    // 更新時間等級
+                    updatedLevel = /小時/.test(lastUpdated) ? ( parseInt(lastUpdated.match(/([0-9]+)/)[1]) <= 6 ? 'just-updated' : 'today-updated' ) : updatedLevel;
+                    updatedLevel = /分鐘/.test(lastUpdated) ? 'just-updated' : updatedLevel;
+
                     // 租金
                     res = html.match(/<em>(.+)<\/em>/);
-                    rentFee = (res ? res[1] : '')
+                    rentFee = (res ? res[1] : '');
                     output += rentFee;
                     output += ' / ';
 
                     // 坪數
                     res = html.match(/([0-9]+)坪/);
-                    propSize = (res ? res[1] : '')
+                    propSize = (res ? res[1] : '');
                     output += propSize;
                     output += ' / ';
 
@@ -92,7 +98,7 @@ window.onload = function(){
                     output += floorCount;
                     output += ' / ';
 
-                    $('#prop_num_' + propId).text(rentFee);
+                    displayText = rentFee + ' | ' + propSize + '坪 | 樓層 ' + floorCount + ' | ' + lastUpdated;
 
                     console.log(output);
                 });
